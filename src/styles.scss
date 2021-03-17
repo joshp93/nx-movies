@@ -1,0 +1,65 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    border: 0px;
+    background-color: var(--primaryContrast);
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.contentWrapper {
+    width: 95%;
+    margin: auto;
+    padding-bottom: 3em;
+}
+.contentWrapper form {
+    padding: 0.5em;
+    background-color: var(--primary);
+    border-radius: 5px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    color: var(--primaryContrast);
+}
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.flexColumn button {
+    align-self: flex-end;
+}
+.buttons {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+}
+.buttons span {
+    margin: auto;
+}
+table {
+    width: 100%;
+    margin-top: 1em;
+}
+// $trColour: var(--primary);
+tr {
+    background-color: var(--primary);
+}
+.deleteButton {
+    align-self: flex-end;
+}
+.mat-paginator {
+    margin-top: 1em;
+}
+.mat-option {
+    color: var(--primaryContrast);
+}

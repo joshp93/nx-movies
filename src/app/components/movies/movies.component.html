@@ -1,0 +1,16 @@
+<div class="contentWrapper">
+    <div class="flexColumn">
+        <form class="flexRow" [formGroup]="searchForm">
+            <mat-form-field appearance="standard" color="accent">
+                <mat-label>Search...</mat-label>
+                <input matInput type="text" formControlName="search">
+            </mat-form-field>
+            <button mat-button type="submit" color="accent" (click)="search()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </form>
+        <ul>
+            <li *ngFor="let movie of movies">{{ movie.title }}</li>
+        </ul>
+    </div>
+</div>
