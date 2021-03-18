@@ -43,6 +43,6 @@ public class MovieSearchResultController {
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(response.body(), new TypeReference<MovieSearchResult>() {}).setImagePathsFromConfig(config);
+        return mapper.readValue(response.body(), new TypeReference<MovieSearchResult>() {}).sanitiseData(config);
     }
 }

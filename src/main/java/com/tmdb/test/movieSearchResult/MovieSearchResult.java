@@ -41,10 +41,23 @@ public class MovieSearchResult {
         this.page = page;
     }
 
-    public MovieSearchResult setImagePathsFromConfig(Configuration config) {
+    public MovieSearchResult sanitiseData(Configuration config) {
         for (int i = 0; i < results.length; i++) {
-            results[i].setBackdrop_path(config.getImages().getBase_url() + config.getImages().getBackdrop_sizes()[0] + results[i].getBackdrop_path());
-            results[i].setPoster_path(config.getImages().getBase_url() + config.getImages().getPoster_sizes()[0] + results[i].getPoster_path());
+            if ((config.getImages().getBase_url() != null) && (config.getImages().getBase_url() != "") && 
+            (config.getImages().getBackdrop_sizes()[0] != null) && (config.getImages().getBackdrop_sizes()[0] != "") && 
+            (results[i].getBackdrop_path() != null) && (results[i].getBackdrop_path() != "")) {
+                results[i].setBackdrop_path(config.getImages().getBase_url() + config.getImages().getBackdrop_sizes()[0] + results[i].getBackdrop_path());
+            } else {
+                results[i].setBackdrop_path("");
+            }
+
+            if ((config.getImages().getBase_url() != null) && (config.getImages().getBase_url() != "") &&
+            (config.getImages().getPoster_sizes()[0] != null) && (config.getImages().getPoster_sizes()[0] != "") &&
+            (results[i].getPoster_path() != null) && (results[i].getPoster_path() != "")) {
+                results[i].setPoster_path(config.getImages().getBase_url() + config.getImages().getPoster_sizes()[0] + results[i].getPoster_path());
+            } else {
+                results[i].setPoster_path("");
+            }
         }
         return this;
     }
