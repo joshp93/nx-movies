@@ -14,33 +14,20 @@ export class Movie {
     vote_average: number;
     vote_count: number;
 
-    constructor(adult: boolean,
-        backdrop_path: string,
-        genre_ids: number[],
-        id: number,
-        original_language: string,
-        original_title: string,
-        overview: string,
-        popularity: number,
-        poster_path: string,
-        release_date: string,
-        title: string,
-        video: boolean,
-        vote_average: number,
-        vote_count: number) {
-            this.adult = adult;
-            this.backdrop_path = backdrop_path;
-            this.genre_ids = genre_ids;
-            this.id = id;
-            this.original_language = original_language;
-            this.original_title = original_title;
-            this.overview = overview;
-            this.popularity = popularity;
-            this.poster_path = poster_path;
-            this.release_date = release_date;
-            this.title = title;
-            this.video = video;
-            this.vote_average = vote_average;
-            this.vote_count = vote_count;
+    constructor(movie: Movie) {
+        this.adult = movie.adult;
+        this.backdrop_path = movie.backdrop_path ? movie.backdrop_path : "../../assets/missing.jpg";
+        this.genre_ids = movie.genre_ids;
+        this.id = movie.id;
+        this.original_language = movie.original_language;
+        this.original_title = movie.original_title;
+        this.overview = movie.overview;
+        this.popularity = movie.popularity;
+        this.poster_path = movie.poster_path ? movie.poster_path : "../../assets/missing.jpg";
+        this.release_date = movie.release_date;
+        this.title = movie.title;
+        this.video = movie.video;
+        this.vote_average = movie.vote_average;
+        this.vote_count = movie.vote_count;
     }
 }

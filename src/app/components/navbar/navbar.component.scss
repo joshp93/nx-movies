@@ -1,0 +1,42 @@
+nav {
+    display: flex;
+    background-color: var(--accent);
+    color: var(--primary);
+    justify-content: flex-start;
+}
+nav button {
+    height: 70px;
+    color: var(--primary);
+    a {
+        text-decoration: none;
+        background-image: linear-gradient(var(--primary), var(--primary));
+        background-size: 0% 0.2em;
+        background-position-y: 100%;
+        background-position-x: 0%;
+        background-repeat: no-repeat;
+        transition: background-size 0.2s ease-in-out;
+    }
+}
+nav button:hover {
+    a {
+        background-size: 100% 0.2em;
+    }
+}
+nav p {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    line-height: 70px;
+    font-size: x-large;
+    margin-left: auto;
+}
+nav p:hover {
+    cursor: help;
+}
+nav p:hover::before {
+    content: '❤';
+}
+.spacer {
+    width: 100%;
+    height: 10px;
+}

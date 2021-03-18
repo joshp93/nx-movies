@@ -22,7 +22,10 @@ export class MoviesComponent implements OnInit {
 
   search() {
     this.movieService.getMovies(this.searchForm.value.search).subscribe(result => {
-      this.movies = result.results;
+      this.movies = new Array<Movie>();
+      result.results.map((movie) => {
+        this.movies.push(new Movie(movie));
+      });
     });
   }
 }
