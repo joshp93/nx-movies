@@ -9,8 +9,16 @@
                 <mat-icon>search</mat-icon>
             </button>
         </form>
-        <ul>
-            <li *ngFor="let movie of movies">{{ movie.title }}</li>
-        </ul>
+        <div class="movies">
+            <div *ngFor="let movie of movies">
+                <div class="movie">
+                    <div class="info">
+                        <img [src]="movie.backdrop_path" alt="backdrop">
+                        <p>{{ movie.title }}</p>
+                        <p class="overview">{{ movie.overview }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
