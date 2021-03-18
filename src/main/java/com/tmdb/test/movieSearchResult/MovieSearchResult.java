@@ -1,8 +1,9 @@
-package com.tmdb.test.searchResult;
+package com.tmdb.test.movieSearchResult;
 
+import com.tmdb.test.configuration.Configuration;
 import com.tmdb.test.movie.Movie;
 
-public class SearchResult {
+public class MovieSearchResult {
     private Integer page;
     private Movie[] results;
     private Integer total_pages;
@@ -38,5 +39,13 @@ public class SearchResult {
 
     public void setPage(Integer page) {
         this.page = page;
+    }
+
+    public MovieSearchResult setImagePathsFromConfig(Configuration config) {
+        for (int i = 0; i < results.length; i++) {
+            results[i].setBackdrop_path(config.getImages().getBase_url() + config.getImages().getBackdrop_sizes()[0] + results[i].getBackdrop_path());
+            results[i].setPoster_path(config.getImages().getBase_url() + config.getImages().getPoster_sizes()[0] + results[i].getPoster_path());
+        }
+        return this;
     }
 }
