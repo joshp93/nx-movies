@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Movie } from 'src/app/models/movie.model';
+import { TV } from 'src/app/models/tv.model';
 import { TMDBService } from 'src/app/services/tmdb.service';
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  selector: 'app-tv-shows',
+  templateUrl: './tv-shows.component.html',
+  styleUrls: ['./tv-shows.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class TvShowsComponent implements OnInit {
   searchForm: FormGroup;
-  movies: Movie[];
+  tvShows: TV[];
 
   constructor(private tmdbService: TMDBService, private fb: FormBuilder) { }
 
@@ -22,10 +22,10 @@ export class MoviesComponent implements OnInit {
 
   search() {
     if (this.searchForm.value.search) {
-      this.tmdbService.getMovies(this.searchForm.value.search).subscribe(result => {
-        this.movies = new Array<Movie>();
-        result.results.map((movie) => {
-          this.movies.push(new Movie(movie));
+      this.tmdbService.getTVShows(this.searchForm.value.search).subscribe(result => {
+        this.tvShows = new Array<TV>();
+        result.results.map((tv) => {
+          this.tvShows.push(new TV(tv));
         });
       });
     }

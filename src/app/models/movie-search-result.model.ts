@@ -1,6 +1,6 @@
 import { Movie } from "./movie.model";
 
-export class SearchResult {
+export class MovieSearchResult {
     page: number;
     results: Movie[];
     total_pages: number;

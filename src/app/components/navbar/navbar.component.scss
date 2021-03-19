@@ -10,16 +10,18 @@ nav button {
     a {
         text-decoration: none;
         background-image: linear-gradient(var(--primary), var(--primary));
-        background-size: 0% 0.2em;
+        background-size: 0% 2em;
         background-position-y: 100%;
         background-position-x: 0%;
         background-repeat: no-repeat;
         transition: background-size 0.2s ease-in-out;
+        padding: 4px;
     }
 }
 nav button:hover {
     a {
-        background-size: 100% 0.2em;
+        background-size: 100% 2em;
+        color: var(--accent);
     }
 }
 nav p {
@@ -34,7 +36,7 @@ nav p:hover {
     cursor: help;
 }
 nav p:hover::before {
-    content: '❤';
+    content: '❤ => ';
 }
 .spacer {
     width: 100%;

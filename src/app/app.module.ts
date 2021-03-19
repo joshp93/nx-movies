@@ -12,12 +12,14 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TvShowsComponent } from './components/tv-shows/tv-shows.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    NavbarComponent
+    NavbarComponent,
+    TvShowsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<div class="contentWrapper">
+    <div class="flexColumn">
+        <form class="flexRow" [formGroup]="searchForm">
+            <mat-form-field appearance="standard" color="accent">
+                <mat-label>Search...</mat-label>
+                <input matInput type="text" formControlName="search">
+            </mat-form-field>
+            <button mat-button type="submit" color="accent" (click)="search()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </form>
+        <div class="tvShows">
+            <div *ngFor="let tv of tvShows">
+                <div class="tvShow">
+                    <div class="info">
+                        <img [src]="tv.backdrop_path" alt="TV Show Backdrop Image">
+                        <p>{{ tv.name }}</p>
+                        <p class="overview">{{ tv.overview }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
