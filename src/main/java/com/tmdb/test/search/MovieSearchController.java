@@ -1,4 +1,4 @@
-package com.tmdb.test.movieSearchResult;
+package com.tmdb.test.search;
 
 import java.io.IOException;
 import java.net.URI;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "api/v1/movies")
-public class MovieSearchResultController {
+public class MovieSearchController {
     private final String rootUri = "https://api.themoviedb.org/3/search/";
 
     @GetMapping
