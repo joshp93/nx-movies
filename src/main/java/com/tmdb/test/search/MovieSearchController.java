@@ -28,15 +28,17 @@ public class MovieSearchController {
 
     @GetMapping
     @CrossOrigin(origins = "http://localhost:4200")
-    public MovieSearchResult getMovies(@RequestParam String query) throws IOException, InterruptedException {
+    public MovieSearchResult getMovies(@RequestParam String query, @RequestParam String api_key) throws IOException, InterruptedException {
         ConfigurationController configController = new ConfigurationController();
         Configuration config = configController.GetConfiguration();
         
-        String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8); 
+        String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
+        String encodedApiKey = URLEncoder.encode(api_key, StandardCharsets.UTF_8);
+        String endpoint = rootUri + "movie?query=" + encodedQuery + "&api_key=" + encodedApiKey;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .GET()
-            .uri(URI.create(rootUri + "movie?query=" + encodedQuery + "&api_key=66b5c7fda06a1512aab3bf907e61d85c"))
+            .uri(URI.create(endpoint))
             .timeout(Duration.ofSeconds(30))
             .build();
 
