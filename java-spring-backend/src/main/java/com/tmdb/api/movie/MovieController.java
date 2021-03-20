@@ -1,4 +1,4 @@
-package com.tmdb.test.movie;
+package com.tmdb.api.movie;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

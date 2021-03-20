@@ -1,7 +1,7 @@
-package com.tmdb.test.search;
+package com.tmdb.api.search;
 
-import com.tmdb.test.configuration.Configuration;
-import com.tmdb.test.tv.TV;
+import com.tmdb.api.configuration.Configuration;
+import com.tmdb.api.tv.TV;
 
 public class TVSearchResult {
     private Integer page;

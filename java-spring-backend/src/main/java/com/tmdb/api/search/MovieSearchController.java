@@ -1,4 +1,4 @@
-package com.tmdb.test.search;
+package com.tmdb.api.search;
 
 import java.io.IOException;
 import java.net.URI;
@@ -12,8 +12,8 @@ import java.time.Duration;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tmdb.test.configuration.Configuration;
-import com.tmdb.test.configuration.ConfigurationController;
+import com.tmdb.api.configuration.Configuration;
+import com.tmdb.api.configuration.ConfigurationController;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

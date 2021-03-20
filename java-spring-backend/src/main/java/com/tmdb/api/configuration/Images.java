@@ -1,4 +1,4 @@
-package com.tmdb.test.configuration;
+package com.tmdb.api.configuration;
 
 public class Images {
     private String base_url;
