@@ -28,19 +28,15 @@ nav button:focus {
     }
 }
 nav p {
-    margin: 0px;
+    margin: 0px 2vw 0px 0px;
     padding: 0px;
     border: 0px;
     line-height: 70px;
     font-size: x-large;
     margin-left: auto;
 }
-nav p:hover,
-nav p:focus {
-    cursor: help;
-}
 nav p:hover::before {
-    content: '❤ => ';
+    content: '🚌...';
 }
 .spacer {
     width: 100%;
