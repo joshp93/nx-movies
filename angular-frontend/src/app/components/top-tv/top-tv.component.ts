@@ -4,11 +4,11 @@ import { TV } from 'src/app/models/tv.model';
 import { TMDBService } from 'src/app/services/tmdb.service';
 
 @Component({
-  selector: 'app-tv-shows',
-  templateUrl: './tv-shows.component.html',
-  styleUrls: ['./tv-shows.component.scss']
+  selector: 'app-top-tv',
+  templateUrl: './top-tv.component.html',
+  styleUrls: ['./top-tv.component.scss']
 })
-export class TVShowsComponent implements OnInit {
+export class TopTVComponent implements OnInit {
   tvShows: TV[];
   showDetail: boolean;
   tvDetail: TVDetail;
@@ -16,15 +16,11 @@ export class TVShowsComponent implements OnInit {
   constructor(private tmdbService: TMDBService) { }
 
   ngOnInit(): void {
-  }
-
-  search(value: string) {
-    this.tmdbService.getTVShows(value).subscribe(result => {
-      this.tvShows = new Array<TV>();
-      result.results.map((tv) => {
-        this.tvShows.push(new TV(tv));
-      });
-    });
+    this.tmdbService.getTopTVShows().subscribe(
+      (result) => {
+        this.tvShows = result.results;
+      }
+    )
   }
 
   getDetails(id: number) {

@@ -4,11 +4,11 @@ import { Movie } from 'src/app/models/movie.model';
 import { TMDBService } from 'src/app/services/tmdb.service';
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+  selector: 'app-top-movies',
+  templateUrl: './top-movies.component.html',
+  styleUrls: ['./top-movies.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class TopMoviesComponent implements OnInit {
   movies: Movie[];
   showDetail: boolean;
   movieDetail: MovieDetail;
@@ -16,16 +16,11 @@ export class MoviesComponent implements OnInit {
   constructor(private tmdbService: TMDBService) { }
 
   ngOnInit(): void {
-  }
-
-  search(value: string) {
-    this.tmdbService.getMovies(value).subscribe(
-      result => {
-        this.movies = new Array<Movie>();
-        result.results.map((movie) => {
-          this.movies.push(new Movie(movie));
-        });
-      });
+    this.tmdbService.getTopMovies().subscribe(
+      (result) => {
+        this.movies = result.results;
+      }
+    )
   }
 
   getDetails(id: number) {

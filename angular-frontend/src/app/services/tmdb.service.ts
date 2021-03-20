@@ -35,6 +35,44 @@ export class TMDBService {
     )
   }
 
+  getTopMovies(): Observable<MovieSearchResult> {
+    return this.httpClient.get<MovieSearchResult>(`${this.rootUri}movie/popular`, {
+      params: this.buildTopParams()
+    }).pipe(
+      delay(2000),
+      retry(1),
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      })
+    );
+  }
+
+  getTopTVShows(): Observable<TVSearchResult> {
+    return this.httpClient.get<TVSearchResult>(`${this.rootUri}tv/popular`, {
+      params: this.buildTopParams()
+    }).pipe(
+      delay(2000),
+      retry(1),
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      })
+    );
+  }
+
   getTVShows(query: string): Observable<TVSearchResult> {
     return this.httpClient.get<TVSearchResult>(`${this.rootUri}tv-shows`, {
       params: this.buildSearchParams(query)
@@ -57,6 +95,11 @@ export class TMDBService {
   buildSearchParams(query: string): HttpParams {
     return new HttpParams()
     .set("query", query)
+    .set("api_key", localStorage.getItem("api_key"));
+  }
+
+  buildTopParams(): HttpParams {
+    return new HttpParams()
     .set("api_key", localStorage.getItem("api_key"));
   }
 

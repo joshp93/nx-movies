@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TVShowsComponent } from './tv-shows.component';
+import { TopTVComponent } from './top-tv.component';
 
-describe('TvShowsComponent', () => {
-  let component: TVShowsComponent;
-  let fixture: ComponentFixture<TVShowsComponent>;
+describe('TopTvComponent', () => {
+  let component: TopTVComponent;
+  let fixture: ComponentFixture<TopTVComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TVShowsComponent ]
+      declarations: [ TopTVComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TVShowsComponent);
+    fixture = TestBed.createComponent(TopTVComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

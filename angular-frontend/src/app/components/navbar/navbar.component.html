@@ -1,6 +1,15 @@
 <nav>
-    <button mat-button color="primary" routerLink="movies"><a>Movies</a></button>
-    <button mat-button color="primary" routerLink="tv-shows"><a>TV Shows</a></button>
+    <button mat-button color="primary" [matMenuTriggerFor]="moviesMenu"><a>Movies</a></button>
+    <mat-menu #moviesMenu="matMenu">
+        <button mat-menu-item routerLink="movies">Search</button>
+        <button mat-menu-item routerLink="movies/popular">Top 10</button>
+    </mat-menu>
+    <button mat-button color="primary" [matMenuTriggerFor]="tvMenu"><a>TV Shows</a></button>
+    <mat-menu #tvMenu="matMenu">
+        <button mat-menu-item routerLink="tv-shows">Search</button>
+        <button mat-menu-item routerLink="tv-shows/popular">Top 10</button>
+    </mat-menu>
+
     <button mat-button color="primary" (click)="setup()" id="setup">
         <mat-icon>settings</mat-icon>
     </button>

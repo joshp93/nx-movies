@@ -1,0 +1,12 @@
+<div class="contentWrapper">
+    <h1>Top 10 TV Shows...</h1>
+    <div class="tile-grid">
+        <app-tile *ngFor="let tv of tvShows" [id]="tv.id" [backdrop_path]="tv.backdrop_path"
+            [title]="tv.name" [overview]="tv.overview" (click)="getDetails(tv.id)"></app-tile>
+    </div>
+    <ng-container *ngIf="showDetail">
+        <app-detail
+        [tvDetail]="tvDetail"
+        (closeEvent)="this.showDetail = false"></app-detail>
+    </ng-container>
+</div>
