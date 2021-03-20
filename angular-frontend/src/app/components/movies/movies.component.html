@@ -5,8 +5,8 @@
             [title]="movie.title" [overview]="movie.overview" (click)="getDetails(movie.id)"></app-tile>
     </div>
     <ng-container *ngIf="showDetail">
-        <app-movie-detail
+        <app-detail
         [movieDetail]="movieDetail"
-        (closeEvent)="this.showDetail = false"></app-movie-detail>
+        (closeEvent)="this.showDetail = false"></app-detail>
     </ng-container>
 </div>

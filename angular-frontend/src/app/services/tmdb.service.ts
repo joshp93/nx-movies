@@ -5,6 +5,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http"
 import { MovieSearchResult } from '../models/movie-search-result.model';
 import { TVSearchResult } from '../models/tv-search-result.model';
 import { MovieDetail } from '../models/movie-detail.model';
+import { TVDetail } from '../models/tv-detail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -78,9 +79,28 @@ export class TMDBService {
     )
   }
 
+  getTVDetail(id: number): Observable<TVDetail> {
+    return this.httpClient.get<TVDetail>(`${this.rootUri}tv`, {
+      params: this.buildDetailParams(id)
+    }).pipe(
+      delay(2000),
+      retry(1),
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        window.alert(errorMessage);
+        return throwError(errorMessage);
+      })
+    )
+  }
+
   buildDetailParams(id: number): HttpParams {
     return new HttpParams()
-    .set("movie_id", id.toString())
+    .set("id", id.toString())
     .set("api_key", localStorage.getItem("api_key"));
   }
 }

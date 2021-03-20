@@ -17,7 +17,7 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from "@angular/materia
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TileComponent } from './components/tile/tile.component';
 import { SearchComponent } from './components/search/search.component';
-import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { MovieDetailComponent } from './components/detail/detail.component';
 import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({

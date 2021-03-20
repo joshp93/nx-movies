@@ -1,12 +1,10 @@
 <div class="contentWrapper">
-    <div class="flexColumn">
-        <app-search (valueEvent)="search($event)"></app-search>
-        <div class="tile-grid">
-            <app-tile *ngFor="let tv of tvShows"
-            [id]="tv.id"
-            [backdrop_path]="tv.backdrop_path"
-            [title]="tv.name"
-            [overview]="tv.overview"></app-tile>
-        </div>
+    <app-search (valueEvent)="search($event)"></app-search>
+    <div class="tile-grid">
+        <app-tile *ngFor="let tv of tvShows" [id]="tv.id" [backdrop_path]="tv.backdrop_path" [title]="tv.name"
+            [overview]="tv.overview"  (click)="getDetails(tv.id)"></app-tile>
     </div>
+    <ng-container *ngIf="showDetail">
+        <app-detail [tvDetail]="tvDetail" (closeEvent)="this.showDetail = false"></app-detail>
+    </ng-container>
 </div>

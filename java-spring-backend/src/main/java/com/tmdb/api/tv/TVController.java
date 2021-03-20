@@ -1,4 +1,4 @@
-package com.tmdb.api.movie;
+package com.tmdb.api.tv;
 
 import java.io.IOException;
 import java.net.URI;
@@ -22,13 +22,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/movie")
-public class MovieController {
-    private final String rootUri = "https://api.themoviedb.org/3/movie/";
+@RequestMapping("api/v1/tv")
+public class TVController {
+    private final String rootUri = "https://api.themoviedb.org/3/tv/";
 
     @GetMapping
     @CrossOrigin(origins = "http://localhost:4200")
-    public MovieDetail getMovie(@RequestParam Integer id, @RequestParam String api_key) throws IOException, InterruptedException {
+    public TVDetail getTV(@RequestParam Integer id, @RequestParam String api_key) throws IOException, InterruptedException {
         ConfigurationController configController = new ConfigurationController();
         Configuration config = configController.GetConfiguration();
         
@@ -44,7 +44,7 @@ public class MovieController {
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
         ObjectMapper mapper = new ObjectMapper();
-        MovieDetail movie = mapper.readValue(response.body(), new TypeReference<MovieDetail>() {});
-        return movie.sanitiseData(movie, config);
+        TVDetail tvDetail = mapper.readValue(response.body(), new TypeReference<TVDetail>() {});
+        return tvDetail.sanitiseData(tvDetail, config);
     }
 }
