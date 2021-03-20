@@ -1,12 +1,12 @@
 <div class="contentWrapper">
-    <div>
-        <app-search (valueEvent)="search($event)"></app-search>
-        <div class="tile-grid">
-            <app-tile *ngFor="let movie of movies"
-                [id]="movie.id"
-                [backdrop_path]="movie.backdrop_path"
-                [title]="movie.title"
-                [overview]="movie.overview"></app-tile>
-        </div>
+    <app-search (valueEvent)="search($event)"></app-search>
+    <div class="tile-grid">
+        <app-tile *ngFor="let movie of movies" [id]="movie.id" [backdrop_path]="movie.backdrop_path"
+            [title]="movie.title" [overview]="movie.overview" (click)="getDetails(movie.id)"></app-tile>
     </div>
+    <ng-container *ngIf="showDetail">
+        <app-movie-detail
+        [movieDetail]="movieDetail"
+        (closeEvent)="this.showDetail = false"></app-movie-detail>
+    </ng-container>
 </div>

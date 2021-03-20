@@ -1,5 +1,7 @@
 package com.tmdb.api.movie;
 
+import com.tmdb.api.configuration.Configuration;
+
 public class Movie {
     private Boolean adult;
     private String backdrop_path;
@@ -14,15 +16,15 @@ public class Movie {
     private String title;
     private Boolean video;
     private Float vote_average;
-    private Float vote_count;
+    private Integer vote_count;
     
     public Boolean getAdult() {
         return adult;
     }
-    public Float getVote_count() {
+    public Integer getVote_count() {
         return vote_count;
     }
-    public void setVote_count(Float vote_count) {
+    public void setVote_count(Integer vote_count) {
         this.vote_count = vote_count;
     }
     public Float getVote_average() {
@@ -99,5 +101,24 @@ public class Movie {
     }
     public void setAdult(Boolean adult) {
         this.adult = adult;
+    }
+
+    public Movie sanitiseData(Movie movie, Configuration config) {
+        if ((config.getImages().getBase_url() != null) && (config.getImages().getBase_url() != "") && 
+            (config.getImages().getBackdrop_sizes()[0] != null) && (config.getImages().getBackdrop_sizes()[0] != "") && 
+            (movie.getBackdrop_path() != null) && (movie.getBackdrop_path() != "")) {
+                movie.setBackdrop_path(config.getImages().getBase_url() + config.getImages().getBackdrop_sizes()[0] + movie.getBackdrop_path());
+            } else {
+                movie.setBackdrop_path("");
+            }
+
+            if ((config.getImages().getBase_url() != null) && (config.getImages().getBase_url() != "") &&
+            (config.getImages().getPoster_sizes()[0] != null) && (config.getImages().getPoster_sizes()[0] != "") &&
+            (movie.getPoster_path() != null) && (movie.getPoster_path() != "")) {
+                movie.setPoster_path(config.getImages().getBase_url() + config.getImages().getPoster_sizes()[0] + movie.getPoster_path());
+            } else {
+                movie.setPoster_path("");
+            }
+        return movie;
     }
 }
