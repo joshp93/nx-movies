@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Movie } from 'src/app/models/movie.model';
 import { TMDBService } from 'src/app/services/tmdb.service';
 
@@ -9,25 +8,21 @@ import { TMDBService } from 'src/app/services/tmdb.service';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  searchForm: FormGroup;
   movies: Movie[];
+  error: any;
 
-  constructor(private tmdbService: TMDBService, private fb: FormBuilder) { }
+  constructor(private tmdbService: TMDBService) { }
 
   ngOnInit(): void {
-    this.searchForm = this.fb.group({
-      search: new FormControl("")
-    })
   }
 
-  search() {
-    if (this.searchForm.value.search) {
-      this.tmdbService.getMovies(this.searchForm.value.search).subscribe(result => {
+  search(value: string) {
+    this.tmdbService.getMovies(value).subscribe(
+      result => {
         this.movies = new Array<Movie>();
         result.results.map((movie) => {
           this.movies.push(new Movie(movie));
         });
       });
-    }
   }
 }

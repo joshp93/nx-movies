@@ -1,0 +1,23 @@
+form {
+    display: flex;
+    .mat-form-field {
+        width: 90%;
+    }
+    justify-content: center;
+    button {
+        align-self: center;
+        background-image: linear-gradient(var(--accent), var(--accent));
+        background-size: 0% 70px;
+        background-position-y: 100%;
+        background-position-x: 0%;
+        background-repeat: no-repeat;
+        transition: background-size 0.2s ease-in-out;
+        background-color: var(--primary);
+        border: none;
+    }
+    button:hover,
+    button:focus {
+        background-size: 100% 70px;
+        color: var(--primary);
+    }
+}

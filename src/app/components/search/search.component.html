@@ -1,0 +1,9 @@
+<form>
+    <mat-form-field appearance="standard" color="accent">
+        <mat-label>Search...</mat-label>
+        <input matInput type="text" #input>
+    </mat-form-field>
+    <button type="submit" (click)="search(input.value)">
+        <mat-icon>search</mat-icon>
+    </button>
+</form>

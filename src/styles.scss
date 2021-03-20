@@ -35,31 +35,10 @@ button:focus {
     flex-direction: row;
     justify-content: flex-start;
 }
-.flexColumn button {
-    align-self: flex-end;
-}
-.buttons {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: row;
-}
-.buttons span {
-    margin: auto;
-}
-table {
-    width: 100%;
-    margin-top: 1em;
-}
-// $trColour: var(--primary);
-tr {
-    background-color: var(--primary);
-}
-.deleteButton {
-    align-self: flex-end;
-}
-.mat-paginator {
-    margin-top: 1em;
-}
-.mat-option {
-    color: var(--primaryContrast);
+.tile-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 400px));
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
 }

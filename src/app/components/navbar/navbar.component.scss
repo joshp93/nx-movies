@@ -7,7 +7,8 @@ nav {
 nav button {
     height: 70px;
     color: var(--primary);
-    a {
+    a,
+    .mat-icon {
         text-decoration: none;
         background-image: linear-gradient(var(--primary), var(--primary));
         background-size: 0% 2em;
@@ -18,8 +19,10 @@ nav button {
         padding: 4px;
     }
 }
-nav button:hover {
-    a {
+nav button:hover,
+nav button:focus {
+    a,
+    .mat-icon {
         background-size: 100% 2em;
         color: var(--accent);
     }
@@ -32,7 +35,8 @@ nav p {
     font-size: x-large;
     margin-left: auto;
 }
-nav p:hover {
+nav p:hover,
+nav p:focus {
     cursor: help;
 }
 nav p:hover::before {
