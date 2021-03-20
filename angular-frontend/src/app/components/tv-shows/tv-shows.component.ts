@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TVDetail } from 'src/app/models/tv-detail.model';
 import { TV } from 'src/app/models/tv.model';
 import { TMDBService } from 'src/app/services/tmdb.service';
 
@@ -9,6 +10,8 @@ import { TMDBService } from 'src/app/services/tmdb.service';
 })
 export class TvShowsComponent implements OnInit {
   tvShows: TV[];
+  showDetail: boolean;
+  tvDetail: TVDetail;
 
   constructor(private tmdbService: TMDBService) { }
 
@@ -22,5 +25,14 @@ export class TvShowsComponent implements OnInit {
         this.tvShows.push(new TV(tv));
       });
     });
+  }
+
+  getDetails(id: number) {
+    this.tmdbService.getTVDetail(id).subscribe(
+      (result) => {
+        this.tvDetail = result;
+        this.showDetail = true;
+      }
+    );
   }
 }

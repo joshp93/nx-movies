@@ -42,3 +42,56 @@ button:focus {
     grid-column-gap: 1em;
     grid-row-gap: 1em;
 }
+.detailBox {
+    position: fixed;
+    top: 10vh;
+    left: 5vw;
+    width: 85vw;
+    height: 70vh;
+    background-color: var(--primary);
+    color: var(--primaryContrast);
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    h1 {
+        margin: 0px;
+        color: var(--primary);
+        margin: 0px auto 0px auto;
+        align-self: center;
+    }
+    .content {
+        padding: 2vh 2vw 2vh 2vw;
+    }
+    img {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: fit-content;
+    }
+    .scores {
+        margin: 0px;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        background-color: var(--accent);
+        height: 5vh;
+        .mat-icon {
+            padding: 0px 0.5vw 0px 0.5vw;
+            height: 5vh;
+            line-height: 5vh;
+            color: var(--primary);
+            text-decoration: none;
+            background-image: linear-gradient(var(--primary), var(--primary));
+            background-size: 0% 2em;
+            background-position-y: 100%;
+            background-position-x: 0%;
+            background-repeat: no-repeat;
+            transition: background-size 0.2s ease-in-out;
+        }
+        .mat-icon:hover,
+        .mat-icon:focus {
+            background-size: 100% 2em;
+            color: var(--accent);
+            cursor: pointer;
+        }
+    }
+}

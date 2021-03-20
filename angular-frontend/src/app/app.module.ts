@@ -17,6 +17,8 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from "@angular/materia
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TileComponent } from './components/tile/tile.component';
 import { SearchComponent } from './components/search/search.component';
+import { MovieDetailComponent } from './components/detail/detail.component';
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { SearchComponent } from './components/search/search.component';
     TvShowsComponent,
     SetupDialogComponent,
     TileComponent,
-    SearchComponent
+    SearchComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { SearchComponent } from './components/search/search.component';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: MatDialogRef, useValue: [] },

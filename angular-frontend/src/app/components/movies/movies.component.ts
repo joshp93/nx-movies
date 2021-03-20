@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieDetail } from 'src/app/models/movie-detail.model';
 import { Movie } from 'src/app/models/movie.model';
 import { TMDBService } from 'src/app/services/tmdb.service';
 
@@ -9,6 +10,9 @@ import { TMDBService } from 'src/app/services/tmdb.service';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[];
+  showDetail: boolean;
+  movieDetail: MovieDetail;
+
   error: any;
 
   constructor(private tmdbService: TMDBService) { }
@@ -24,5 +28,14 @@ export class MoviesComponent implements OnInit {
           this.movies.push(new Movie(movie));
         });
       });
+  }
+
+  getDetails(id: number) {
+    this.tmdbService.getMovieDetail(id).subscribe(
+      (result) => {
+        this.movieDetail = result;
+        this.showDetail = true;
+      }
+    );
   }
 }

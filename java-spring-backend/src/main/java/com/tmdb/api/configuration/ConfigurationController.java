@@ -1,4 +1,4 @@
-package com.tmdb.test.configuration;
+package com.tmdb.api.configuration;
 
 import java.io.IOException;
 import java.net.URI;

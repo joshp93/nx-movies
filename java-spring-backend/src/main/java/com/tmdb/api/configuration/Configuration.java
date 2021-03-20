@@ -1,4 +1,4 @@
-package com.tmdb.test.configuration;
+package com.tmdb.api.configuration;
 
 public class Configuration {
     private Images images;

@@ -1,0 +1,44 @@
+<div class="detailBox">
+    <ng-container *ngIf="movieDetail">
+        <div class="header">
+            <mat-icon (click)="close()">close</mat-icon>
+            <h1>{{ movieDetail.title }}</h1>
+        </div>
+        <div class="content">
+            <img [src]="movieDetail.backdrop_path" alt="" [hidden]="!movieDetail.backdrop_path">
+            <p class="scores"><span matTooltip="Popularity">
+                    <mat-icon>insert_emoticon</mat-icon>{{ movieDetail.popularity }}
+                </span> |
+                <span matTooltip="Vote Count">
+                    <mat-icon>how_to_vote</mat-icon>{{ movieDetail.vote_count }}
+                </span> |
+                <span matTooltip="Vote Average">
+                    <mat-icon>sports_score</mat-icon>{{ movieDetail.vote_average }}
+                </span>
+            </p>
+            <h3>{{ movieDetail.tagline }}</h3>
+            <p>{{ movieDetail.overview }}</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="tvDetail">
+        <div class="header">
+            <mat-icon (click)="close()">close</mat-icon>
+            <h1>{{ tvDetail.name }}</h1>
+        </div>
+        <div class="content">
+            <img [src]="tvDetail.backdrop_path" alt="" [hidden]="!tvDetail.backdrop_path">
+            <p class="scores"><span matTooltip="Popularity">
+                    <mat-icon>insert_emoticon</mat-icon>{{ tvDetail.popularity }}
+                </span> |
+                <span matTooltip="Vote Count">
+                    <mat-icon>how_to_vote</mat-icon>{{ tvDetail.vote_count }}
+                </span> |
+                <span matTooltip="Vote Average">
+                    <mat-icon>sports_score</mat-icon>{{ tvDetail.vote_average }}
+                </span>
+            </p>
+            <h3>{{ tvDetail.tagline }}</h3>
+            <p>{{ tvDetail.overview }}</p>
+        </div>
+    </ng-container>
+</div>
