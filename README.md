@@ -15,7 +15,7 @@ This repo contains all source code for this project...
 
 ##### Front End
 I have used Angular for the front end. I used material styling to fasttrack some of the visual elements such as the input boxes, buttons etc.
-Other than that, I have written all the code, styling and markup myself (consulting guru Google for advice). I have created a custom Angular theme with my own colours, called grey-pink-theme. I appologise of you think the website has too much pink... But I quite like this style!
+Other than that, I have written all the code, styling and markup myself (consulting guru Google for advice). I have created a custom Angular theme with my own colours, called grey-pink-theme. I appologise if you think the website has too much pink... But I quite like this style!
 
 I have used SCSS for styling
 
@@ -24,7 +24,7 @@ Java with Spring Framework. I have never written in Java before, so this was a b
 
 ## Deployment :shipit:
 ##### Front End
-The Angular application has been deplyed to GitHub Pages: (https://joshp93.github.io/nx-movies/prod), however it still points to localhost for the back end API, so the back end will need to be running on the same machine \ server in order to query data from TMDb
+The Angular application has been deployed to GitHub Pages: (https://joshp93.github.io/nx-movies/prod), however it still points to localhost for the back end API, so the back end will need to be running on the same machine \ server in order to query data from TMDb
 
 ##### Back End
 The back end has not been deployed \ hosted. I have never deployed a jar \ war file before. After investigating what was involved and looking at a few free hosting options I decided not to attempt this in the time that was available to me. You will need to download the source code and run the application on your machine. it runs against the default port 8080.
@@ -37,7 +37,7 @@ One important thing to note is that the application doesn't use SSL. I did inves
 - lowerCamelCase for variable names
 - kebab-case for filenames, selectors etc.
 - Modules are appended with the word Module and services with the word Service
-- I have tried to create the code in a modular way => This helps with readability and also allows for certain elements to be reused. Sections of the template that are requried by multiple components have been factored in a separate component, for example the tile, search and paginator elements.
+- I have tried to create the code in a modular way => This helps with readability and also allows for certain elements to be re-used. Sections of the template that are required by multiple components have been factored into a separate component, for example the tile, search and paginator elements.
 - I have used folders to group things together, for example components, models, services.
 ##### SCSS
 - I have used the global stylesheet and variables to reduce the impact of changing styles and increase consistency across the site. Only component specific styling has been added at the component level.
@@ -59,7 +59,7 @@ I am not entirely happy with the code quality for the Java section of this proje
 I have had to make some sacrifices along the way and manage my time when working on this project. There are some areas that I am not happy with and want to improve. Here are some of the things that I wanted to do but didn't
 - Deploy the project to a hosted server. This would have been very helpful for you in order to review the results, I am also aware that code deployment is an important part of the job
 - Use SSL \ https. Especially if I was to deploy this project, this would be a very important element. The website would be very insecure and compramisable without this.
-- Error handling: Especially in then back end, I would ideally have spent more time working on how the API handles errors and returns them. I woudl also like to include a 404 page and display certain errors to the user in a meaningful way in the Angular project
+- Error handling: Especially in the back end, I would ideally have spent more time working on how the API handles errors and returns them. I would also like to include a 404 page and display certain errors to the user in a meaningful way in the Angular project
 - Testing: I have not written any tests because I did not prioritise this in my working. However I understand the power and importance of Automated testing and would have loved to include proper tests
 - Asyncronous web service calls from the back end: I was struggling to understand the syntax for sendAsync from Java HttpClient, so I decided to settle for a syncronous call, but ideally the api should be able to handle multiple requests concurrently.
 - Combined search: I would like to introduce the ability to search for both movies and TV and display the results accordingly
