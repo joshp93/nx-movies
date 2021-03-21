@@ -27,24 +27,23 @@ public class MovieController {
     private final String rootUri = "https://api.themoviedb.org/3/movie/";
 
     @GetMapping
-    @CrossOrigin(origins = "https://joshp93.github.io")
-    public MovieDetail getMovie(@RequestParam Integer id, @RequestParam String api_key) throws IOException, InterruptedException {
+    @CrossOrigin(origins = { "https://joshp93.github.io", "http://localhost:4200" })
+    public MovieDetail getMovie(@RequestParam Integer id, @RequestParam String api_key)
+            throws IOException, InterruptedException {
         ConfigurationController configController = new ConfigurationController();
         Configuration config = configController.GetConfiguration();
-        
+
         String encodedApiKey = URLEncoder.encode(api_key, StandardCharsets.UTF_8);
         String endpoint = rootUri + id + "?api_key=" + encodedApiKey;
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-            .GET()
-            .uri(URI.create(endpoint))
-            .timeout(Duration.ofSeconds(30))
-            .build();
+        HttpRequest request = HttpRequest.newBuilder().GET().uri(URI.create(endpoint)).timeout(Duration.ofSeconds(30))
+                .build();
 
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
         ObjectMapper mapper = new ObjectMapper();
-        MovieDetail movie = mapper.readValue(response.body(), new TypeReference<MovieDetail>() {});
+        MovieDetail movie = mapper.readValue(response.body(), new TypeReference<MovieDetail>() {
+        });
         return movie.sanitiseData(movie, config);
     }
 }
