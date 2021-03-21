@@ -1,3 +1,24 @@
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(+100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 img {
     width: 100%;
 }
@@ -19,12 +40,14 @@ img {
         display: none;
     }
 }
-.tile:hover {
+.tile:hover,
+.tile:focus {
     cursor: pointer;
     background-color: var(--accent);
     color: var(--primary);
     transition: color 0.3s, box-shadow 0.5s;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     .info {
         transform: translateY(-190px);
         transition: transform 0.3s;
@@ -32,4 +55,10 @@ img {
     .overview {
         display: inherit;
     }
+}
+.next {
+    animation: 0.2s ease-in 0s slideFromRight;
+}
+.prev {
+    animation: 0.2s ease-in 0s slideFromLeft;    
 }

@@ -22,6 +22,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatMenuModule } from "@angular/material/menu";
 import { TopMoviesComponent } from './components/top-movies/top-movies.component';
 import { TopTVComponent } from './components/top-tv/top-tv.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TopTVComponent } from './components/top-tv/top-tv.component';
     SearchComponent,
     MovieDetailComponent,
     TopMoviesComponent,
-    TopTVComponent
+    TopTVComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,

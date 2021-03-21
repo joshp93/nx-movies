@@ -28,13 +28,13 @@ public class TVSearchController {
 
     @GetMapping
     @CrossOrigin(origins = "http://localhost:4200")
-    public TVSearchResult getTVShows(@RequestParam String query, @RequestParam String api_key) throws IOException, InterruptedException {
+    public TVSearchResult getTVShows(@RequestParam String query, @RequestParam String api_key, @RequestParam Integer page) throws IOException, InterruptedException {
         ConfigurationController configController = new ConfigurationController();
         Configuration config = configController.GetConfiguration();
         
         String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
         String encodedApiKey = URLEncoder.encode(api_key, StandardCharsets.UTF_8);
-        String endpoint = rootUri + "tv?query=" + encodedQuery + "&api_key=" + encodedApiKey;
+        String endpoint = rootUri + "tv?query=" + encodedQuery + "&api_key=" + encodedApiKey + "&page=" + page;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .GET()
