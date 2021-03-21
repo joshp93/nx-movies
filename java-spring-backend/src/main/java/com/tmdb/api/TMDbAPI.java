@@ -9,8 +9,4 @@ public class TMDbAPI {
 	public static void main(String[] args) {
 		SpringApplication.run(TMDbAPI.class, args);
 	}
-
-	public String hello() {
-		return "Hello World";
-	}
 }
