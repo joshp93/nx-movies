@@ -29,7 +29,7 @@ public class TopTVController {
     private final String rootUri = "https://api.themoviedb.org/3/tv/popular";
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://joshp93.github.io")
     public TVSearchResult getTopMovies(@RequestParam String api_key) throws IOException, InterruptedException {
         ConfigurationController configController = new ConfigurationController();
         Configuration config = configController.GetConfiguration();

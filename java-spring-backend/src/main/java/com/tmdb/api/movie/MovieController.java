@@ -27,7 +27,7 @@ public class MovieController {
     private final String rootUri = "https://api.themoviedb.org/3/movie/";
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://joshp93.github.io")
     public MovieDetail getMovie(@RequestParam Integer id, @RequestParam String api_key) throws IOException, InterruptedException {
         ConfigurationController configController = new ConfigurationController();
         Configuration config = configController.GetConfiguration();

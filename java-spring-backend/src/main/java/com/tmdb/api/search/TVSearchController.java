@@ -27,7 +27,7 @@ public class TVSearchController {
     private final String rootUri = "https://api.themoviedb.org/3/search/";
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://joshp93.github.io")
     public TVSearchResult getTVShows(@RequestParam String query, @RequestParam String api_key, @RequestParam Integer page) throws IOException, InterruptedException {
         ConfigurationController configController = new ConfigurationController();
         Configuration config = configController.GetConfiguration();
