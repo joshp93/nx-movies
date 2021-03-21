@@ -16,14 +16,14 @@ export class Movie {
 
     constructor(movie: Movie) {
         this.adult = movie.adult;
-        this.backdrop_path = movie.backdrop_path ? movie.backdrop_path : "../../assets/missing.jpg";
+        this.backdrop_path = movie.backdrop_path ? movie.backdrop_path : "assets/missing.jpg";
         this.genre_ids = movie.genre_ids;
         this.id = movie.id;
         this.original_language = movie.original_language;
         this.original_title = movie.original_title;
         this.overview = movie.overview;
         this.popularity = movie.popularity;
-        this.poster_path = movie.poster_path ? movie.poster_path : "../../assets/missing.jpg";
+        this.poster_path = movie.poster_path ? movie.poster_path : "assets/missing.jpg";
         this.release_date = movie.release_date;
         this.title = movie.title;
         this.video = movie.video;
