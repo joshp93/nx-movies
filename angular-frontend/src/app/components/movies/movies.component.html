@@ -1,12 +1,11 @@
 <div class="contentWrapper">
-    <app-search (valueEvent)="search($event)"></app-search>
+    <app-search (valueEvent)="search($event, 1, false)"></app-search>
     <div class="tile-grid">
         <app-tile *ngFor="let movie of movies" [id]="movie.id" [backdrop_path]="movie.backdrop_path"
-            [title]="movie.title" [overview]="movie.overview" (click)="getDetails(movie.id)"></app-tile>
+            [title]="movie.title" [overview]="movie.overview" [searchBack]="searchBack" (click)="getDetails(movie.id)"></app-tile>
     </div>
     <ng-container *ngIf="showDetail">
-        <app-detail
-        [movieDetail]="movieDetail"
-        (closeEvent)="this.showDetail = false"></app-detail>
+        <app-detail [movieDetail]="movieDetail" (closeEvent)="this.showDetail = false"></app-detail>
     </ng-container>
+    <app-paginator [page]="page" [totalPages]="totalPages" [totalResults]="totalResults" (onChangePage)="search(searchValue, $event.value, $event.searchBack)"></app-paginator>
 </div>

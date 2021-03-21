@@ -1,0 +1,7 @@
+<div class="paginator" *ngIf="totalResults">
+    <mat-icon (click)="first()">fast_rewind</mat-icon>
+    <mat-icon (click)="previous()">skip_previous</mat-icon>
+    <p>Page: {{ page }} of {{ totalPages }} | {{ totalResults }} results</p>
+    <mat-icon (click)="next()">fast_forward</mat-icon>
+    <mat-icon (click)="last()">skip_next</mat-icon>
+</div>

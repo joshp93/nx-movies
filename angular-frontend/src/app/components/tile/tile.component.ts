@@ -10,9 +10,12 @@ export class TileComponent implements OnInit {
   @Input() backdrop_path: string;
   @Input() title: string;
   @Input() overview: string;
+  @Input() searchBack: boolean;
+  animateBack: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.animateBack = this.searchBack;
   }
 }

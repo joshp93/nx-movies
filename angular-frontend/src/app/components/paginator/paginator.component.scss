@@ -1,0 +1,28 @@
+.paginator {
+    margin: 2vh auto 0vh auto;
+    display: flex;
+    flex-direction: row;
+    width: 81vw;
+    height: 5vh;
+    background-color: var(--accent);
+    padding: 0px 2vw 0px 2vw;
+    align-content: center;
+    .mat-icon {
+        background-image: linear-gradient(var(--primary), var(--primary));
+        background-size: 0% 2em;
+        background-position-y: 100%;
+        background-position-x: 0%;
+        background-repeat: no-repeat;
+        transition: background-size 0.2s ease-in-out;
+        align-self: center;
+    }
+    .mat-icon:hover,
+    .mat-icon:focus {
+        cursor: pointer;
+        background-size: 100% 2em;
+        color: var(--accent);
+    }
+    p {
+        padding: 0px 1vw 0px 1vw;
+    }
+}

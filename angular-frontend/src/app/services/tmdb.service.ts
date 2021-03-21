@@ -16,9 +16,9 @@ export class TMDBService {
     this.rootUri = "http://localhost:8080/api/v1/";
   }
 
-  getMovies(query: string): Observable<MovieSearchResult> {
+  getMovies(query: string, page: number): Observable<MovieSearchResult> {
     return this.httpClient.get<MovieSearchResult>(`${this.rootUri}movies`, {
-      params: this.buildSearchParams(query)
+      params: this.buildSearchParams(query, page)
     }).pipe(
       delay(2000),
       retry(1),
@@ -73,9 +73,9 @@ export class TMDBService {
     );
   }
 
-  getTVShows(query: string): Observable<TVSearchResult> {
+  getTVShows(query: string, page: number): Observable<TVSearchResult> {
     return this.httpClient.get<TVSearchResult>(`${this.rootUri}tv-shows`, {
-      params: this.buildSearchParams(query)
+      params: this.buildSearchParams(query, page)
     }).pipe(
       delay(2000),
       retry(1),
@@ -92,9 +92,10 @@ export class TMDBService {
     )
   }
 
-  buildSearchParams(query: string): HttpParams {
+  buildSearchParams(query: string, page: number): HttpParams {
     return new HttpParams()
     .set("query", query)
+    .set("page", page.toString())
     .set("api_key", localStorage.getItem("api_key"));
   }
 

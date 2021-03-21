@@ -12,19 +12,27 @@ export class TVShowsComponent implements OnInit {
   tvShows: TV[];
   showDetail: boolean;
   tvDetail: TVDetail;
+  page: number;
+  totalPages: number;
+  totalResults: number;
+  searchValue: string;
 
   constructor(private tmdbService: TMDBService) { }
 
   ngOnInit(): void {
   }
 
-  search(value: string) {
-    this.tmdbService.getTVShows(value).subscribe(result => {
+  search(value: string, page: number) {
+    this.tmdbService.getTVShows(value, page).subscribe(result => {
       this.tvShows = new Array<TV>();
       result.results.map((tv) => {
         this.tvShows.push(new TV(tv));
       });
+      this.page = result.page;
+      this.totalPages = result.total_pages;
+      this.totalResults = result.total_results;
     });
+    this.searchValue = value;
   }
 
   getDetails(id: number) {
